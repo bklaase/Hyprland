@@ -197,6 +197,7 @@ void CMonitor::onDisconnect() {
             wlr_layer_surface_v1_destroy(ls->layerSurface);
             Events::listener_destroyLayerSurface(ls.get(), nullptr);
         }
+        m_aLayerSurfaceLists[i].clear();
     }
 
     if (!BACKUPMON) {
