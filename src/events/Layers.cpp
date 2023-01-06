@@ -90,7 +90,7 @@ void Events::listener_destroyLayerSurface(void* owner, void* data) {
     layersurface->hyprListener_newPopup.removeCallback();
 
     // rearrange to fix the reserved areas
-    if (PMONITOR) {
+    if (PMONITOR && PMONITOR->m_bEnabled) {
         g_pHyprRenderer->arrangeLayersForMonitor(PMONITOR->ID);
         PMONITOR->scheduledRecalc = true;
 

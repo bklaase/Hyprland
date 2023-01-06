@@ -195,6 +195,7 @@ void CMonitor::onDisconnect() {
     for (size_t i = 0; i < 4; ++i) {
         for (auto& ls : m_aLayerSurfaceLists[i]) {
             wlr_layer_surface_v1_destroy(ls->layerSurface);
+            Events::listener_destroyLayerSurface(ls.get(), nullptr);
         }
     }
 
